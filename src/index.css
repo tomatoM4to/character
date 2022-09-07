@@ -1,0 +1,68 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: overlay;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  background-color: #E0E5EC;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  height: 30%;
+  background-color: hsla(0, 0%, 33%, 0.49);
+  border-radius: 10px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* reset css */
+blockquote, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, iframe, legend, li, ol, p, pre, textarea, ul {margin:0;padding:0}
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:400}
+ul {list-style:none}
+button, input, select {margin:0}
+html {box-sizing:border-box}
+*, :after, :before {box-sizing:inherit}
+img, video {height:auto;max-width:100%}
+iframe {border:0}
+table {border-collapse:collapse;border-spacing:0}
+td, th {padding:0}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  
+/* 테블릿 가로, 테블릿 세로 */ 
+@media all and (min-width:768px) and (max-width:1023px) {
+  html {
+    font-size: 55%;
+  }
+} 
+
+/* 모바일 가로, 모바일 세로 */ 
+@media all and (max-width:767px) {
+  html {
+    font-size: 45%;
+  }
+}
