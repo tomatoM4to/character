@@ -20,6 +20,7 @@ import { PythonIcon,
 import { useState } from "react";
 import { useRef } from "react";
 import Title from "./Title";
+import axios from 'axios';
 
 const lightGreen = '#00FF00';
 const darkGreen = 'darkgreen';
@@ -39,6 +40,8 @@ const Apply = ({applyRef}) => {
     const phoneInputRef = useRef();
     const etcInputRef = useRef();
 
+    const [applying, setApplying] = useState('신청');
+
     const onSubmit = () => {
         if (nameInputRef.current.value === "") {
             alert('이름은 필수 입력칸 입니다.');
@@ -53,8 +56,35 @@ const Apply = ({applyRef}) => {
             alert('전화번호는 필수 입력칸 입니다.');
             phoneInputRef.current.focus();
         } else {
-            alert('신청이 완료되었습니다.');
-
+            setApplying('신청 중...');
+            axios.post(process.env.REACT_APP_GOOGLE_SHEET, {
+                이름: nameInputRef.current.value,
+                학번: studentIdInputRef.current.value,
+                학과: departmentInputRef.current.value,
+                전화번호: phoneInputRef.current.value + 100,
+                파이썬: python,
+                c: cplus,
+                java: java,
+                html: html,
+                없음: empty,
+                기타: guitar,
+                기타설명: etcInputRef.current.value
+            })
+            .then(response => {
+                setApplying('신청');
+                nameInputRef.current.value = '';
+                studentIdInputRef.current.value = '';
+                departmentInputRef.current.value = '';
+                phoneInputRef.current.value = '';
+                etcInputRef.current.value = '';
+                onPython(false);
+                onJava(false);
+                onCplus(false);
+                onHtml(false);
+                onEmpty(false);
+                onGuitar(false);
+                alert('신청이 완료되었습니다.');
+            })
         }
     }
 
@@ -111,8 +141,10 @@ const Apply = ({applyRef}) => {
             <CmdContainer>
                 <span style={{
                     color: lightGreen,
-                    fontSize: '2rem'}}>
-                    <p>Character Windows [Version 10.0.22000.856]</p>
+                    fontSize: '2rem',
+                    marginBottom: '2rem'
+                    }}>
+                    <p>Character Windows [Version 12.6.210000.172</p>
                     <p>(c) Character Corporation. All rights reserved.</p>
                     <p style={{display: 'flex', alignItems: 'center'}}>C:\Users\Character&gt; . . . <StyledCursor/></p>
                 </span>
@@ -165,7 +197,7 @@ const Apply = ({applyRef}) => {
                             color={lightGreen}
                             id="phone-numver"
                             ref={phoneInputRef}
-                            onChange={e => inspectionLen(e, phoneInputRef, 11)}
+                            onChange={e => inspectionLen(e, phoneInputRef, 12)}
                             autoComplete="off"
                             />
                     </InputContainer>
@@ -180,6 +212,7 @@ const Apply = ({applyRef}) => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         paddingBottom: '0.5rem',
+                        marginBottom: '1rem',
                         gap: '1rem'
                     }}>
 
@@ -269,7 +302,7 @@ const Apply = ({applyRef}) => {
                             autoComplete="off"
                             />
                     </InputContainer>
-                    <CustomSubmit type="button" onClick={onSubmit}>신청</CustomSubmit>
+                    <CustomSubmit type="button" onClick={onSubmit}>{applying}</CustomSubmit>
                 </Form>
                 {/* form end */}
 
@@ -299,9 +332,8 @@ const CmdContainer = styled.div`
     background-color: black;
     border: 0.5rem solid #D3D3D3;
     border-top: none;
-    height: 70vh;
+    height: 200%;
     width: 90%;
-    margin-bottom: 10vh;
 `;
 
 const CmdNav = styled.div`
@@ -336,6 +368,7 @@ const InputContainer = styled.div`
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
+    margin: 1rem 0;
 `;
 
 const CustomInput = styled.input`
@@ -379,11 +412,18 @@ const Label = styled.label`
 
 const CustomSubmit = styled.button`
     border: 0.2rem dashed #00FF00;
+    font-size: 2rem;
     background-color: transparent;
     color: #00FF00;
-    margin-top: 1rem;
+    margin: 3rem 0;
     padding: 1rem 0;
     width: 25%;
+    @media all and (min-width:768px) and (max-width:1023px) {
+        width: 50%;
+    } 
+    @media all and (max-width:767px) {
+        width: 80%;
+    }
 `;
 
 const RotateDash = styled(BsDashLg)`

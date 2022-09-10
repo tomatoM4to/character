@@ -115,7 +115,7 @@ const SubContainer = styled.div`
     @media screen and (max-width: 900px) {
         flex-direction: column;
         div {
-            width: 100%;
+            width: 90%;
         }
     }
 

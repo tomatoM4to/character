@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Title from "./Title";
 import { Swiper, SwiperSlide } from "swiper/react";
+import aaa from "../img/reading-g32c169cab_1280.png"
+import {BsFillFileEarmarkXFill} from "react-icons/bs";
 
 // Import Swiper styles
 import "swiper/css";
@@ -35,27 +37,20 @@ const Project = ({projectRef}) => {
                 >
                     <SwiperSlide>
                         <Card>
-                            Hello
+                            <BsFillFileEarmarkXFill style={{fontSize: '6rem'}} />
+                            페이지 준비중 입니다.
                         </Card>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Card>
-                            Hello
+                            <BsFillFileEarmarkXFill style={{fontSize: '6rem'}} />
+                            페이지 준비중 입니다.
                         </Card>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Card>
-                            Hello
-                        </Card>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card>
-                            Hello
-                        </Card>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card>
-                            Hello
+                            <BsFillFileEarmarkXFill style={{fontSize: '6rem'}} />
+                            페이지 준비중 입니다.
                         </Card>
                     </SwiperSlide>
                 </Swiper>
@@ -85,6 +80,8 @@ const Card = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -93,7 +90,7 @@ const Card = styled.div`
     border-radius: 30px;
     border: 1px solid white;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    font-size: 5rem;
+    font-size: 2rem;
     color: white;
 `;
 

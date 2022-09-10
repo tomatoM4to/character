@@ -6,11 +6,18 @@ const Background = ({ homeRef, applyRef }) => {
     return (
         <HomeBackground ref={homeRef}>
             <Meteor top={0} right={0} delay={'0s'} duration={'1s'} />
-            <Meteor top={0} right={'50%'} delay={'0s'} duration={'1s'} />
-            <Meteor top={'50%'} left={'100%'} right={'-60%'} delay={'1.5s'} duration={'1.5s'} />
-            <Meteor top={'60%'} left={'100%'} right={'-60%'} delay={'0s'} duration={'2s'} />
-            <Meteor top={'70%'} left={'100%'} right={'-60%'} delay={'0s'} duration={'1s'} />
-            <Meteor top={'80%'} left={'100%'} right={'-60%'} delay={'1.5s'} duration={'2.5s'} />
+            <Meteor top={0} right={'50%'} delay={'0.3s'} duration={'0'} />
+            <Meteor top={'50%'} left={'100%'} right={'-60%'} delay={'0.1s'} duration={'0.8s'} />
+            <Meteor top={'60%'} left={'100%'} right={'-60%'} delay={'0'} duration={'1.2s'} />
+            <Meteor top={'70%'} left={'100%'} right={'-60%'} delay={'0.1s'} duration={'1.4s'} />
+            <Meteor top={'80%'} left={'100%'} right={'-60%'} delay={'0.4s'} duration={'1.8s'} />
+            <Meteor top={'10%'} left={'100%'} right={'-60%'} delay={'0.2s'} duration={'1.4s'} />
+            <Meteor top={'10%'} left={'100%'} right={'-60%'} delay={'0'} duration={'1.6s'} />
+            <Meteor top={'20%'} left={'100%'} right={'-60%'} delay={'0'} duration={'0.7s'} />
+            <Meteor top={0} right={'70%'} delay={'0'} duration={'3s'} />
+            <Meteor top={0} right={'60%'} delay={'0'} duration={'2s'} />
+            <Meteor top={0} right={'40%'} delay={'0.2s'} duration={'1.5s'} />
+            <Meteor top={0} right={'90%'} delay={'0.5s'} duration={'2s'} />
             <TextContainer>
                 <TitleContainer>
                     <SubTitle>DJU Coding Community</SubTitle>
@@ -41,14 +48,14 @@ const Meteor = styled.span`
     top: ${props => props.top};
     right: ${props => props.right};
     left: ${props => props.left};
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
                 0 0 0 8px rgba(255, 255, 255, 0.1),
                 0 0 20px rgba(255, 255, 255, 1);
-    animation: animate 3s linear infinite;
+    animation: animate1 3s linear infinite;
     animation-delay: ${props => props.delay};
     animation-duration: ${props => props.duration};
     &::before {
@@ -56,11 +63,11 @@ const Meteor = styled.span`
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 200px;
+        width: 15rem;
         height: 1px;
         background: linear-gradient(90deg, white, transparent);
     }
-    @keyframes animate {
+    @keyframes animate1 {
         0% {
             transform: rotate(338deg) translateX(0);
             opacity: 1;

@@ -6,7 +6,7 @@ const Navigation = ({ homeRef, introduceRef, applyRef, projectRef, qnaRef }) => 
     const [navColor, setNavColor] = useState("transparent");
     const [menu, onMenu] = useState(false);
     const listenScrollEvent = () => {
-        window.scrollY > 10 ? setNavColor("black") : setNavColor("transparent");
+        window.scrollY > 10 ? setNavColor("#00042E") : setNavColor("transparent");
     };
     useEffect(() => {
         window.addEventListener("scroll", listenScrollEvent);
@@ -30,7 +30,7 @@ const Navigation = ({ homeRef, introduceRef, applyRef, projectRef, qnaRef }) => 
                     <UnderscoreBtn onClick={e => onNav(e, homeRef)}>Home</UnderscoreBtn>
                     <UnderscoreBtn onClick={e => onNav(e, introduceRef)}>Introduce</UnderscoreBtn>
                     <UnderscoreBtn onClick={e => onNav(e, projectRef)}>Project</UnderscoreBtn>
-                    <UnderscoreBtn onClick={e => onNav(e, qnaRef)}>Q&A</UnderscoreBtn>
+                    <UnderscoreBtn onClick={e => onNav(e, qnaRef)}>FaQs</UnderscoreBtn>
                     <UnderscoreBtn onClick={e => onNav(e, applyRef)}>Apply</UnderscoreBtn>
                 </BtnContainer>
                 <Menu onClick={() => onMenu(!menu)}>
@@ -62,7 +62,7 @@ const Navigation = ({ homeRef, introduceRef, applyRef, projectRef, qnaRef }) => 
                 <MemberBtn onClick={e => onMenuBoxBtn(e, homeRef)}>Home</MemberBtn>
                 <MemberBtn onClick={e => onMenuBoxBtn(e, introduceRef)}>Introduce</MemberBtn>
                 <MemberBtn onClick={e => onMenuBoxBtn(e, projectRef)}>Project</MemberBtn>
-                <MemberBtn onClick={e => onMenuBoxBtn(e, qnaRef)}>Q&A</MemberBtn>
+                <MemberBtn onClick={e => onMenuBoxBtn(e, qnaRef)}>FaQs</MemberBtn>
                 <MemberBtn onClick={e => onMenuBoxBtn(e, applyRef)}>Apply</MemberBtn>
             </MenuBox>
         </nav>
@@ -146,7 +146,7 @@ const MenuBox = styled.div`
     position: fixed;
     z-index: 500;
     top: 0;
-    background-color: black;
+    background-color: #00042E;
     width: 100vw;
     height: 100vh;
     transition: all .35s;
@@ -160,10 +160,11 @@ const MemberBtn = styled.button`
     color: white;
     font-size: 4rem;
     background-color: transparent;
+    border: none;
     transition: all .5s;
     &:active {
         background-color: white;
-        color: black;
+        color: #00042E;
     }
 `;
 
