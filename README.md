@@ -19,7 +19,7 @@ install
 Create a character directory on your local machine to store the project repositories
 <pre>
 <code>
-git clone 
+git clone https://github.com/tomatoM4to/character.git
 cd character
 npm install
 npm run start
